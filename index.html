@@ -3,41 +3,677 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electrical BIM & Revit Services</title>
+
+    <title>Weoneva AEC | Electrical BIM & Revit Services</title>
+
+    <meta name="description"
+          content="Weoneva AEC provides electrical BIM modeling and Revit services including lighting, power, cable tray, conduit and panel schedules.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07111f;
+            color: #e8f0f8;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(7, 17, 31, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .brand span {
+            color: #25a9ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b9c8d8;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #25a9ff;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(37,169,255,0.15), transparent 30%),
+                radial-gradient(circle at 20% 80%, rgba(37,169,255,0.08), transparent 30%),
+                #07111f;
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.06;
+            background-image:
+                linear-gradient(#ffffff 1px, transparent 1px),
+                linear-gradient(90deg, #ffffff 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .hero-content {
+            max-width: 1150px;
+            width: 100%;
+            margin: auto;
+            padding: 120px 25px 80px;
+            position: relative;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 7px 13px;
+            border: 1px solid rgba(37,169,255,0.4);
+            border-radius: 30px;
+            color: #25a9ff;
+            font-size: 13px;
+            margin-bottom: 25px;
+            background: rgba(37,169,255,0.05);
+        }
+
+        .hero h1 {
+            max-width: 800px;
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #25a9ff;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #aab9c9;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 23px;
+            border-radius: 7px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #25a9ff;
+            color: #03101d;
+        }
+
+        .primary:hover {
+            background: #62c2ff;
+            transform: translateY(-2px);
+        }
+
+        .secondary {
+            border: 1px solid #33475d;
+            color: #d9e6f2;
+        }
+
+        .secondary:hover {
+            border-color: #25a9ff;
+            color: #25a9ff;
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 100px 25px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: #25a9ff;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            color: #9daec0;
+            max-width: 650px;
+            margin-bottom: 45px;
+        }
+
+        /* SERVICES */
+
+        .services {
+            background: #0a1727;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            padding: 28px;
+            border: 1px solid #1d3045;
+            border-radius: 10px;
+            background: #0d1b2c;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #25a9ff;
+        }
+
+        .service-number {
+            color: #25a9ff;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .service-card p {
+            color: #94a7ba;
+            font-size: 14px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #a5b5c5;
+            margin-bottom: 18px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 13px 0;
+            border-bottom: 1px solid #1d3045;
+            color: #c9d7e5;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #25a9ff;
+            margin-right: 10px;
+        }
+
+        /* PORTFOLIO */
+
+        .portfolio {
+            background: #0a1727;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .portfolio-card {
+            min-height: 240px;
+            border-radius: 10px;
+            border: 1px solid #1d3045;
+            background:
+                linear-gradient(135deg, rgba(37,169,255,0.12), rgba(8,18,31,0.9));
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .portfolio-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .portfolio-card p {
+            color: #9aabba;
+            font-size: 13px;
+        }
+
+        /* CONTACT */
+
+        .contact-box {
+            border: 1px solid #1d3045;
+            border-radius: 12px;
+            padding: 55px;
+            text-align: center;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(37,169,255,0.12), transparent 45%),
+                #0a1727;
+        }
+
+        .contact-box h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #9daec0;
+            margin-bottom: 28px;
+        }
+
+        .email {
+            display: inline-block;
+            margin-top: 20px;
+            color: #25a9ff;
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 25px;
+            border-top: 1px solid #1d3045;
+            text-align: center;
+            color: #718397;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .service-grid,
+            .portfolio-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .contact-box {
+                padding: 35px 20px;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Electrical BIM & Revit Services</h1>
+    <!-- NAVIGATION -->
 
-    <h2>Revit-Based MEP BIM Modeling</h2>
+    <nav>
+        <div class="nav-container">
 
-    <p>
-        Professional electrical BIM modeling and Revit documentation
-        for MEP consultants, contractors and engineering firms.
-    </p>
+            <a href="#home" class="brand">
+                WEONEVA <span>AEC</span>
+            </a>
 
-    <h2>Our Services</h2>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
 
-    <ul>
-        <li>Electrical Revit BIM Modeling</li>
-        <li>Lighting & Power Modeling</li>
-        <li>Cable Tray & Conduit Modeling</li>
-        <li>Electrical Equipment & Panel Modeling</li>
-        <li>Electrical Documentation</li>
-        <li>CAD to Revit Conversion</li>
-    </ul>
+        </div>
+    </nav>
 
-    <h2>Portfolio</h2>
 
-    <p>Our Revit BIM projects will be displayed here.</p>
+    <!-- HERO -->
 
-    <h2>Contact</h2>
+    <section class="hero" id="home">
 
-    <p>
-        Have an electrical BIM project?
-        Contact us to discuss your requirements.
-    </p>
+        <div class="hero-grid"></div>
+
+        <div class="hero-content">
+
+            <div class="tag">
+                ELECTRICAL BIM • REVIT
+            </div>
+
+            <h1>
+                Electrical BIM
+                <span>Built for Better Coordination.</span>
+            </h1>
+
+            <p>
+                Weoneva AEC provides Revit-based electrical BIM modeling
+                and documentation services for MEP consultants,
+                contractors and engineering teams.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#services" class="button primary">
+                    Explore Services
+                </a>
+
+                <a href="#contact" class="button secondary">
+                    Request a Quote
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section class="services" id="services">
+
+        <div class="container">
+
+            <div class="section-label">What We Do</div>
+
+            <h2 class="section-title">
+                Electrical BIM Services
+            </h2>
+
+            <p class="section-description">
+                Focused electrical BIM production using Autodesk Revit,
+                supporting accurate modeling, documentation and project coordination.
+            </p>
+
+
+            <div class="service-grid">
+
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <h3>Electrical Revit Modeling</h3>
+                    <p>
+                        Detailed electrical BIM modeling based on
+                        project drawings, specifications and requirements.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <h3>Lighting & Power</h3>
+                    <p>
+                        Lighting fixtures, power outlets, equipment
+                        and associated electrical systems modeled in Revit.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <h3>Cable Tray & Conduit</h3>
+                    <p>
+                        Electrical containment modeling including
+                        cable trays, fittings and conduit systems.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-number">04</div>
+                    <h3>Electrical Equipment</h3>
+                    <p>
+                        Modeling of electrical equipment, panels,
+                        distribution boards and related components.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-number">05</div>
+                    <h3>Panel Schedules</h3>
+                    <p>
+                        Organized electrical schedules and documentation
+                        prepared within the Revit project environment.
+                    </p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-number">06</div>
+                    <h3>CAD to Revit</h3>
+                    <p>
+                        Conversion of existing electrical CAD drawings
+                        into structured Revit BIM models.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div>
+
+                    <div class="section-label">About Weoneva AEC</div>
+
+                    <h2 class="section-title">
+                        Focused on Electrical BIM.
+                    </h2>
+
+                    <div class="about-text">
+
+                        <p>
+                            Weoneva AEC provides specialized electrical
+                            BIM modeling and Revit production support.
+                        </p>
+
+                        <p>
+                            Our focus is on producing organized,
+                            accurate and project-ready electrical models
+                            that can support the wider MEP coordination process.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <ul class="feature-list">
+
+                        <li>Electrical Revit focused</li>
+                        <li>Project-based BIM support</li>
+                        <li>Clear and organized documentation</li>
+                        <li>Flexible remote collaboration</li>
+                        <li>Focused on client project requirements</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+
+    <section class="portfolio" id="portfolio">
+
+        <div class="container">
+
+            <div class="section-label">Our Work</div>
+
+            <h2 class="section-title">
+                BIM Portfolio
+            </h2>
+
+            <p class="section-description">
+                Portfolio projects will be added here as Weoneva AEC
+                develops its project experience.
+            </p>
+
+
+            <div class="portfolio-grid">
+
+                <div class="portfolio-card">
+                    <div>
+                        <h3>Commercial Electrical BIM</h3>
+                        <p>Lighting • Power • Distribution</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div>
+                        <h3>Electrical Containment</h3>
+                        <p>Cable Tray • Conduit • Coordination</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div>
+                        <h3>Revit Documentation</h3>
+                        <p>Schedules • Sheets • Electrical Layouts</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="contact-box">
+
+                <div class="section-label">
+                    Start a Project
+                </div>
+
+                <h2>
+                    Have an Electrical BIM Project?
+                </h2>
+
+                <p>
+                    Tell us about your project requirements,
+                    drawings and expected deliverables.
+                </p>
+
+                <a
+                    href="mailto:weoneva@gmail.com?subject=Electrical%20BIM%20Project%20Enquiry"
+                    class="button primary">
+                    Email Weoneva AEC
+                </a>
+
+                <br>
+
+                <a
+                    href="mailto:weoneva@gmail.com"
+                    class="email">
+                    weoneva@gmail.com
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Weoneva AEC. Electrical BIM & Revit Services.
+
+    </footer>
 
 </body>
 </html>
